@@ -1,0 +1,28 @@
+% layout 'default';
+% title 'e-bank';
+<div class="jumbotron masthead">
+  <h2><i class="icon-person"></i> Yet Another Online Banking: e-bank</h2>
+  <p>There're <%= $user_num %> people who used this bank.</p>
+</div>
+<table class="table table-striped table-responsive">
+  <thead>
+    <tr>
+      <th>username</th>
+      <th>information</th>
+    </tr>
+  </thead>
+  <tbody>
+    % for my $register (@$registers) {
+    <tr>
+        <td><%= $register->from_user %></td>
+        <td>
+        % if ($register->to_user) {
+        deposited ¥***** to <%= $register->to_user %>.
+        % } else {
+        opened an account.
+        % }
+        </td>
+    </tr>
+    % }
+  </tbody>
+</table>

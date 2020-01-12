@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title><%= title %></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=0.5,user-scalable=yes,initial-scale=1.0">
+  %= javascript '/mojo/jquery/jquery.js'
+  <script src="/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/content/font/elusive-icons/css/elusive-webfont.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lte IE 8]><script src="/wp-content/themes/html5.theme/common/js/html5.js" type="text/javascript"></script><![endif]-->
+</head>
+<body>
+  <nav class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <button type="button" class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse"><i class="icon-list"></i></button>
+        <a href="<%= url_for '/' %>" title="e-bank" class="brand"><i class="icon-person"></i> e-bank</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav nav-pills pull-right">
+          % if ($user) {
+            <li><a href="<%= url_for '/user/bank_transfer' %>" title="Transfer"><i class="icon-briefcase"></i> Transfer</a></li>
+            <li><a href="<%= url_for '/user/inquiry' %>" title="Balance Inquiry"><i class="icon-address-book"></i> Balance inquiry</a></li>
+            <li><a href="<%= url_for '/user/search' %>" title="User Search"><i class="icon-search"></i> User search</a></li>
+            <li class="dropdown">
+              <a href="#" title="Settings" data-toggle="dropdown"><i class="icon-white icon-user"></i> <%= $user->screen_name %></a>
+              <ul class="dropdown-menu">
+                <li><a href="<%= url_for '/user/history' %>">Passbook</a></li>
+                <li><a href="<%= url_for '/logout' %>">Logout</a></li>
+              </ul>
+            </li>
+          % } else {
+            <li><a href="<%= url_for '/signup' %>" title="Sign up"><i class="icon-white icon-unlock"></i> Create an account</a></li>
+            <li><a href="<%= url_for '/login' %>" title="Login"><i class="icon-white icon-off"></i> Login</a></li>
+          % }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-content">
+<%= content %>
+  </section>
+</body>
+</html>

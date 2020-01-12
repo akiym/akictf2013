@@ -1,0 +1,26 @@
+requires 'Amon2', '== 3.87';
+requires 'Amon2::DBI';
+requires 'DBI';
+requires 'DBD::SQLite';
+requires 'Data::Validator';
+requires 'Digest::MD5';
+requires 'FormValidator::Lite';
+requires 'HTTP::Session';
+requires 'Log::Minimal';
+requires 'Plack::Middleware::Log::Minimal';
+requires 'Plack::Middleware::ReverseProxy';
+requires 'Module::Functions';
+requires 'Plack::Builder';
+requires 'Plack::Session';
+requires 'Text::Xslate', '1.6001';
+requires 'Time::Piece';
+
+on configure => sub {
+    requires 'Module::Build';
+    requires 'Module::CPANfile';
+};
+
+on test => sub {
+    requires 'Test::More', '0.98';
+    requires 'Test::Requires';
+};

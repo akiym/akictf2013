@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title><: $title || 'from secure login form' :></title>
+    <link href="<: uri_for('/static/bootstrap/css/bootstrap.min.css') :>" rel="stylesheet" type="text/css" />
+    <link href="<: static_file('/static/css/main.css') :>" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">from secure login form</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    : if defined $user {
+                    <li><a href="<: uri_for('/logout') :>">Logout</a></li>
+                    : } else {
+                    <li><a href="<: uri_for('/register') :>">Register</a></li>
+                    : }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="main">
+            <: block content -> { } :>
+        </div>
+    </div>
+</body>
+</html>

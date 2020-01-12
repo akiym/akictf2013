@@ -1,0 +1,149 @@
+# FLAG PART 1: 7rAv3r5AL_w17H
+use strict;
+use warnings;
+use DBI;
+use Data::Section::Simple qw/get_data_section/;
+use Digest::MD5 qw/md5_hex/;
+use Encode;
+use Plack::Builder;
+use Plack::Request;
+use Text::MicroTemplate qw/render_mt/;
+use URI::Escape;
+
+my $dbh = DBI->connect(
+    "dbi:SQLite:dbname=$ENV{SUPER_SECRET_DB}", '', '',
+    +{
+        AutoCommit => 1,
+        PrintError => 0,
+        RaiseError => 0,
+        sqlite_unicode => 1,
+    }
+);
+
+my $app = sub {
+    my $env = shift;
+    my $req = Plack::Request->new($env);
+    my $method = $req->method;
+    my $path_info = $req->path_info;
+    my $address = $req->address;
+
+    if ($method eq 'GET') {
+        if ($path_info eq '/') {
+            my $notes = $dbh->selectall_arrayref(
+                "SELECT * FROM note WHERE address = '$address' ORDER BY created_at DESC LIMIT 10",
+                {Slice => {}}
+            );
+            return res_html('index.html', $notes);
+        } elsif ($path_info =~ m!^/note/(.*)$!) {
+            my $title = uri_unescape($1);
+            return res_500() if $title =~ /['\\]/;
+            my $note = $dbh->selectrow_hashref(
+                "SELECT * FROM note WHERE title = '$title' AND address = '$address'",
+                {Slice => {}}
+            );
+            if ($note) {
+                my $body = do {
+                    open my $fh, '<:encoding(utf-8)', $note->{path};
+                    local $/; <$fh>;
+                };
+                return res_html('note.html', $note, $body);
+            } else {
+                return [404, [], ['Not found...']];
+            }
+        }
+    } elsif ($method eq 'POST') {
+        if ($path_info eq '/add_note') {
+            my $title = $req->param('title') // return res_500();
+            $title = decode_utf8($title);
+            # prevent directory traversal!
+            $title =~ s!/!!;
+            # prevent SQL injection!
+            $title =~ s/['\\]//g;
+            return res_500() if $title eq '';
+
+            my $body = $req->param('body') // return res_500();
+            $body = decode_utf8($body);
+            return res_500() if length $body >= 1024;
+
+            my $dir = 'notes/' . md5_hex($address . $ENV{SUPER_SECRET_SALT});
+            mkdir $dir unless -e $dir;
+
+            my $path = "$dir/$title";
+            open my $fh, '>:encoding(utf-8)', $path;
+            print {$fh} $body;
+
+            $dbh->do(
+                "INSERT INTO note (title, path, address) VALUES ('$title', '$path', '$address')"
+            );
+
+            return [302, [Location => '/'], []];
+        }
+    }
+};
+
+sub res_html {
+    my ($tmpl, @vars) = @_;
+    my $html = render_mt(get_data_section($tmpl), @vars);
+    $html = encode_utf8($html);
+    return [
+        200,
+        [
+            'Content-Type'   => 'text/html; charset=utf-8',
+            'Content-Length' => length $html,
+        ],
+        [$html]
+    ];
+}
+
+sub res_500 {
+    return [500, [], ['Hacking attempt detected!']];
+}
+
+builder {
+    enable 'Plack::Middleware::ReverseProxy';
+    $app;
+};
+
+__DATA__
+
+@@ index.html
+? my ($notes) = @_;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>SUPER SECRET NOTES</title>
+    <style>*{font-family:monospace}body{background:#333;color:#fff;margin:50px;padding:0}input,textarea{color:#666;background:#eee;width:100%;padding:1em;border:0;box-sizing:border-box;font-size:16px}input{color:#eee;background:#999;border:0}input:hover{background:#666}a{color:#fff}</style>
+</head>
+<body>
+    <h1>SUPER SECRET NOTES JUST FOR YOU!</h1>
+    <form method="post" action="/add_note">
+        <input type="text" name="title" placeholder="TITLE" />
+        <textarea name="body" rows="10"></textarea>
+        <input type="submit" value="ADD NOTE" />
+    </form>
+    <p>YOUR OWN SUPER SECRET NOTES:</p>
+    <ul>
+? for my $note (@$notes) {
+        <li><a href="/note/<?= uri_escape_utf8($note->{title}) ?>"><?= $note->{title} ?></a></li>
+? }
+    </ul>
+</body>
+</html>
+
+@@ note.html
+? my ($note, $body) = @_;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>SUPER SECRET NOTES</title>
+    <style>*{font-family:monospace}body{background:#333;color:#fff;margin:50px;padding:0}input,textarea{color:#666;background:#eee;width:100%;padding:1em;border:0;box-sizing:border-box;font-size:16px}input{color:#eee;background:#999;border:0}input:hover{background:#666}a{color:#fff}</style>
+</head>
+<body>
+    <h1>SUPER SECRET NOTES JUST FOR YOU!</h1>
+    <p><a href="/"><?= $note->{address} ?></a> / <?= $note->{title} ?></p>
+    <hr />
+    <pre><?= $body ?></pre>
+</body>
+</html>

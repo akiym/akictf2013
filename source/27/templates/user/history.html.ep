@@ -1,0 +1,20 @@
+% layout 'default';
+% title 'e-bank';
+<table id="result" class="table table-striped">
+  <thead>
+    <tr>
+      <th>source</th>
+      <th>destination</th>
+      <th>amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    % for my $register (@$registers) {
+    <tr>
+      <td><%= $register->from_user %></td>
+      <td><%= $register->to_user %></td>
+      <td><%= (!$register->to_user || $register->from_user ne $user->username ? '+' : '-') . $register->money %></td>
+    </tr>
+    % }
+  </tbody>
+</table>

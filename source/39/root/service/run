@@ -1,0 +1,5 @@
+#!/bin/sh
+cd /
+ulimit -t 1 -u 50
+exec 2>&1
+exec setuidgid nobody /giveme_shellcode

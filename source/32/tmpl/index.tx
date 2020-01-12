@@ -1,0 +1,26 @@
+: cascade "include/layout.tx"
+
+: override content -> {
+
+<h1>simple sqli</h1>
+
+<form method="post" action="/">
+    ID: <input type="text" name="id" /><input type="submit" value="Go" />
+</form>
+
+<p>message: <: $body :></p>
+
+<h2>Requirement</h2>
+<ul>
+    <li>Please show a part of flag. (hint: XXX_XXXXXX)</li>
+    <li>And then, I'll tell you complete flag.</li>
+    <ul>
+        <li><:- if $flag { -:>
+OK. The flag is: <code>700_51mpl3_27307d6c315d96bb5ea96b5830ca1e6a</code>
+<:- } else { -:>
+NOT OK. The flag is: XXX_XXXXXX_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+<:- } -:></li>
+    </ul>
+</ul>
+
+: }

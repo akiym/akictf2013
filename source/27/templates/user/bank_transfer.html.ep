@@ -1,0 +1,28 @@
+% layout 'default';
+% title 'e-bank';
+<form action="<%= url_for '/user/bank_transfer' %>" method="post" class="form-horizontal">
+  <div class="control-group">
+    <label class="control-label">transfer destination</label>
+    <div class="controls">
+      <input type="text" name="to" placeholder="username" maxlength="14" />
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">amount</label>
+    <div class="controls">
+      <input type="text" name="money" placeholder="10000" />
+    </div>
+  </div>
+  <div class="form-actions">
+      <button type="submit" class="btn btn-primary">transfer</button>
+  </div>
+</form>
+% if (my $message = stash 'message') {
+<div class="alert alert-success">
+  <%= $message %>
+</div>
+% } elsif (my $error = stash 'error') {
+<div class="alert alert-error">
+  <%= $error %>
+</div>
+% }

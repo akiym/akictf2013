@@ -1,0 +1,6 @@
+requires 'Plack';
+requires 'DBI';
+requires 'DBD::SQLite';
+requires 'SQL::Maker' => '1.16';
+requires 'Data::Section::Simple';
+requires 'JSON';

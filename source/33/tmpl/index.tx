@@ -1,0 +1,68 @@
+: cascade "include/layout.tx"
+
+: override content -> {
+
+: if defined $user {
+<h2><: $user.name :>'s information</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>password</th>
+    </tr>
+    <tr>
+        <td><: $user.id :></td>
+        <td><: $user.name :></td>
+        <td><: $user.password :></td>
+    </tr>
+</table>
+    : if $user.id == 1 {
+<p>I'm NOT secure! You logged in as "admin". The flag is <code>admin's password</code>. (Of course, the flag is not "fd-_e~". Guess what it is :)</p>
+    : } else {
+<p>I'm secure! Well, you have to login as "admin". Its password was stored in encrypted but I won't tell you that :p</p>
+    : }
+: } else {
+<p>I'm back! This is secure login form. Try it.</p>
+: }
+
+<form method="post" action="<: uri_for('/') :>" class="form-horizontal" role="form">
+    <legend>login<: if $user { :> as another user<: } :></legend>
+    <div class="form-group">
+        <label for="inputName" class="col-sm-2 control-label">name</label>
+        <div class="col-sm-10">
+            <input type="text" name="name" class="form-control" id="inputName" placeholder="name">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword" class="col-sm-2 control-label">password</label>
+        <div class="col-sm-10">
+            <input type="password" name="password" class="form-control" id="inputPassword" placeholder="password">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">login</button>
+        </div>
+    </div>
+</form>
+    : if defined $message {
+<div class="bs-callout bs-callout-danger">
+    <h4>(´・ω・｀)</h4>
+    <p><: $message :></p>
+</div>
+    : }
+
+<table class="table table-bordered">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+    </tr>
+: for $users -> $u {
+    <tr>
+        <td><: $u.id :></td>
+        <td><: $u.name :></td>
+    </tr>
+: }
+</table>
+
+: }

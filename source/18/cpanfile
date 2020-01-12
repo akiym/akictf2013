@@ -1,0 +1,17 @@
+requires 'Amon2';
+requires 'Amon2::Lite';
+requires 'Plack::Middleware::ReverseProxy';
+requires 'Plack::Builder';
+requires 'Text::Xslate', '1.6001';
+
+on configure => sub {
+    requires 'Module::Build';
+    requires 'Module::CPANfile';
+};
+
+on test => sub {
+    requires 'Plack::Test';
+    requires 'Plack::Util';
+    requires 'Test::More', '0.98';
+    requires 'Test::Requires';
+};

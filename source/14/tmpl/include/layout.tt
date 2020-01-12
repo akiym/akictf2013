@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>[% title || 'q14' %]</title>
+</head>
+<body>[% content %]</body>
+</html>

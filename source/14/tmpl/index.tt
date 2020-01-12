@@ -1,0 +1,56 @@
+[% WRAPPER 'include/layout.tt' %]
+
+<h1>q14</h1>[% IF user %]
+<p>Hello, [% user.name %]</p>
+<h3>Your infomation</h3>
+<table border="1">
+    <tr>
+        <th>user_id</th>
+        <th>name</th>
+        <th>password</th>
+        <th>last_login</th>
+    </tr>
+    <tr>
+        <td>[% user.user_id %]</td>
+        <td>[% user.name %]</td>
+        <td>[% user.password %]</td>
+        <td>[% user.last_login %]</td>
+    </tr>
+</table>
+<p>Okay, you've created an account. What is flag? The flag is <code>FLAG_{foo's password}_{bar's password}_{baz's password}</code>.</p>
+<h3>Hint</h3>
+<ol>
+    <li>See history carefully</li>
+    <li>What happend at 2009/2/14 08:31:30?</li>
+    <li>How did you login to this page?</li>
+</ol>
+<h3>history</h3>
+<table border="1">
+    <tr>
+        <th>user_id</th>
+        <th>name</th>
+        <th>password</th>
+        <th>last_login</th>
+    </tr>[% FOR u IN recent_users %]
+    <tr>
+        <td>[% u.user_id %]</td>
+        <td>[% u.name %]</td>
+        <td>[% u.password %]</td>
+        <td>[% u.last_login %]</td>
+    </tr>[% END %]
+</table>[% ELSE %]
+<h2>New</h2>
+<form method="POST" action="[% uri_for('/account/new') %]">
+    Name: <input type="text" name="name" /><br />
+    Password: <input type="password" name="password" /><br />
+    <input type="submit" value="register" />
+</form>[% END %]
+<hr />
+<h2>Login[% IF user %] as another user[% END %]</h2>
+<form method="POST" action="[% uri_for('/account/login') %]">
+    Name: <input type="text" name="name" /><br />
+    Password: <input type="password" name="password" /><br />
+    <input type="submit" value="login" />
+</form>
+
+[% END %]

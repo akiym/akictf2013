@@ -1,0 +1,17 @@
+[% WRAPPER 'include/layout.tt' %]
+
+<h1>Gyazo</h1>
+
+<form method="POST" action="[% uri_for('/upload') %]" enctype="multipart/form-data">
+    name: <input type="text" name="name" /><br />
+    image: <input type="file" name="imagedata" /><input type="submit" value="upload" />
+    <p>format: PNG, maximum size: 100kb</p>
+</form>
+
+<h2>uploaded file</h2>
+<ul>
+    <li><a href="[% uri_for('/file/welcome.png', {accesscode => '0d7bba2a83745a968b76f22df9a9e176'}) %]">welcome</a></li>[% FOR file IN files %]
+    <li><a href="[% IF file.author == me %][% uri_for('/file/' ~ file.name ~ '.png', {accesscode => file.accesscode}) %][% ELSE %][% uri_for('/file/' ~ file.name ~ '.png') %][% END %]">[% file.name %]</a></li>[% END %]
+</ul>
+
+[% END %]

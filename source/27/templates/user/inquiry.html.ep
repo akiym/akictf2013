@@ -1,0 +1,42 @@
+% layout 'default';
+% title 'e-bank';
+<div class="alert">It requires identification!</div>
+<form id="search" class="form-inline">
+  <input type="text" name="username" placeholder="username" maxlength="14" />
+  <input type="text" class="input-xxlarge" name="screen_name" placeholder="full name" maxlength="25" />
+  <button type="submit" class="btn btn-primary">identify</button>
+</form>
+<table id="result" class="table table-striped">
+  <thead>
+    <tr>
+      <th>full name</th>
+      <th>balance</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<script>
+$(function () {
+  $("#search").submit(function() {
+    $("#result .inquiry").remove();
+    $.ajax("/user/inquiry", {
+      type: "POST",
+      dataType: "json",
+      data: {
+        username: $("#search input[name='username']").val(),
+        screen_name: $("#search input[name='screen_name']").val()
+      },
+      success: function(data, textStatus, jqXHR) {
+        if (data.length != 0) {
+          var tr = $("<tr />").addClass("inquiry");
+          tr.append($("<td />").text(data[0].screen_name));
+          tr.append($("<td />").text("¥" + data[0].money));
+          $("#result tbody").append(tr);
+        }
+      }
+    });
+    return false;
+  });
+});
+</script>

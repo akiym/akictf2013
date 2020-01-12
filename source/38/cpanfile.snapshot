@@ -1,0 +1,541 @@
+# carton snapshot format: version 1.0
+DISTRIBUTIONS
+  Apache-LogFormat-Compiler-0.30
+    pathname: K/KA/KAZEBURO/Apache-LogFormat-Compiler-0.30.tar.gz
+    provides:
+      Apache::LogFormat::Compiler 0.30
+    requirements:
+      CPAN::Meta 0
+      CPAN::Meta::Prereqs 0
+      ExtUtils::CBuilder 0
+      Module::Build 0.38
+      POSIX 0
+      POSIX::strftime::Compiler 0.30
+      Time::Local 0
+      perl 5.008004
+  Class-Inspector-1.28
+    pathname: A/AD/ADAMK/Class-Inspector-1.28.tar.gz
+    provides:
+      Class::Inspector 1.28
+      Class::Inspector::Functions 1.28
+    requirements:
+      ExtUtils::MakeMaker 6.59
+      File::Spec 0.80
+      Test::More 0.47
+      perl 5.006
+  DBD-SQLite-1.42
+    pathname: I/IS/ISHIGAKI/DBD-SQLite-1.42.tar.gz
+    provides:
+      DBD::SQLite 1.42
+      DBD::SQLite::_WriteOnceHash 1.42
+      DBD::SQLite::db 1.42
+      DBD::SQLite::dr 1.42
+    requirements:
+      DBI 1.57
+      ExtUtils::MakeMaker 6.48
+      File::Spec 0.82
+      Test::Builder 0.86
+      Test::More 0.47
+      Tie::Hash 0
+      perl 5.006
+  DBI-1.631
+    pathname: T/TI/TIMB/DBI-1.631.tar.gz
+    provides:
+      Bundle::DBI 12.008696
+      DBD::DBM 0.08
+      DBD::DBM::Statement 0.08
+      DBD::DBM::Table 0.08
+      DBD::DBM::db 0.08
+      DBD::DBM::dr 0.08
+      DBD::DBM::st 0.08
+      DBD::ExampleP 12.014311
+      DBD::ExampleP::db 12.014311
+      DBD::ExampleP::dr 12.014311
+      DBD::ExampleP::st 12.014311
+      DBD::File 0.42
+      DBD::File::DataSource::File 0.42
+      DBD::File::DataSource::Stream 0.42
+      DBD::File::Statement 0.42
+      DBD::File::Table 0.42
+      DBD::File::TableSource::FileSystem 0.42
+      DBD::File::db 0.42
+      DBD::File::dr 0.42
+      DBD::File::st 0.42
+      DBD::Gofer 0.015327
+      DBD::Gofer::Policy::Base 0.010088
+      DBD::Gofer::Policy::classic 0.010088
+      DBD::Gofer::Policy::pedantic 0.010088
+      DBD::Gofer::Policy::rush 0.010088
+      DBD::Gofer::Transport::Base 0.014121
+      DBD::Gofer::Transport::corostream undef
+      DBD::Gofer::Transport::null 0.010088
+      DBD::Gofer::Transport::pipeone 0.010088
+      DBD::Gofer::Transport::stream 0.014599
+      DBD::Gofer::db 0.015327
+      DBD::Gofer::dr 0.015327
+      DBD::Gofer::st 0.015327
+      DBD::NullP 12.014715
+      DBD::NullP::db 12.014715
+      DBD::NullP::dr 12.014715
+      DBD::NullP::st 12.014715
+      DBD::Proxy 0.2004
+      DBD::Proxy::RPC::PlClient 0.2004
+      DBD::Proxy::db 0.2004
+      DBD::Proxy::dr 0.2004
+      DBD::Proxy::st 0.2004
+      DBD::Sponge 12.010003
+      DBD::Sponge::db 12.010003
+      DBD::Sponge::dr 12.010003
+      DBD::Sponge::st 12.010003
+      DBDI 12.015129
+      DBI 1.631
+      DBI::Const::GetInfo::ANSI 2.008697
+      DBI::Const::GetInfo::ODBC 2.011374
+      DBI::Const::GetInfoReturn 2.008697
+      DBI::Const::GetInfoType 2.008697
+      DBI::DBD 12.015129
+      DBI::DBD::Metadata 2.014214
+      DBI::DBD::SqlEngine 0.06
+      DBI::DBD::SqlEngine::DataSource 0.06
+      DBI::DBD::SqlEngine::Statement 0.06
+      DBI::DBD::SqlEngine::Table 0.06
+      DBI::DBD::SqlEngine::TableSource 0.06
+      DBI::DBD::SqlEngine::TieMeta 0.06
+      DBI::DBD::SqlEngine::TieTables 0.06
+      DBI::DBD::SqlEngine::db 0.06
+      DBI::DBD::SqlEngine::dr 0.06
+      DBI::DBD::SqlEngine::st 0.06
+      DBI::FAQ 1.014935
+      DBI::Gofer::Execute 0.014283
+      DBI::Gofer::Request 0.012537
+      DBI::Gofer::Response 0.011566
+      DBI::Gofer::Serializer::Base 0.009950
+      DBI::Gofer::Serializer::DataDumper 0.009950
+      DBI::Gofer::Serializer::Storable 0.015586
+      DBI::Gofer::Transport::Base 0.012537
+      DBI::Gofer::Transport::pipeone 0.012537
+      DBI::Gofer::Transport::stream 0.012537
+      DBI::Profile 2.015065
+      DBI::ProfileData 2.010008
+      DBI::ProfileDumper 2.015325
+      DBI::ProfileDumper::Apache 2.014121
+      DBI::ProfileSubs 0.009396
+      DBI::ProxyServer 0.3005
+      DBI::ProxyServer::db 0.3005
+      DBI::ProxyServer::dr 0.3005
+      DBI::ProxyServer::st 0.3005
+      DBI::SQL::Nano 1.015544
+      DBI::SQL::Nano::Statement_ 1.015544
+      DBI::SQL::Nano::Table_ 1.015544
+      DBI::Util::CacheMemory 0.010315
+      DBI::Util::_accessor 0.009479
+      DBI::common 1.631
+    requirements:
+      ExtUtils::MakeMaker 6.48
+      Test::Simple 0.90
+      perl 5.008
+  Data-Section-Simple-0.07
+    pathname: M/MI/MIYAGAWA/Data-Section-Simple-0.07.tar.gz
+    provides:
+      Data::Section::Simple 0.07
+    requirements:
+      ExtUtils::MakeMaker 6.30
+  Devel-StackTrace-1.31
+    pathname: D/DR/DROLSKY/Devel-StackTrace-1.31.tar.gz
+    provides:
+      Devel::StackTrace 1.31
+      Devel::StackTrace::Frame 1.31
+    requirements:
+      ExtUtils::MakeMaker 6.30
+      File::Spec 0
+      Scalar::Util 0
+      overload 0
+      strict 0
+      warnings 0
+  Devel-StackTrace-AsHTML-0.14
+    pathname: M/MI/MIYAGAWA/Devel-StackTrace-AsHTML-0.14.tar.gz
+    provides:
+      Devel::StackTrace::AsHTML 0.14
+    requirements:
+      Devel::StackTrace 0
+      ExtUtils::MakeMaker 6.59
+      Filter::Util::Call 0
+      Test::More 0
+      perl 5.008001
+  Encode-Locale-1.03
+    pathname: G/GA/GAAS/Encode-Locale-1.03.tar.gz
+    provides:
+      Encode::Locale 1.03
+    requirements:
+      Encode 2
+      Encode::Alias 0
+      ExtUtils::MakeMaker 0
+      Test 0
+      perl 5.008
+  File-ShareDir-1.03
+    pathname: A/AD/ADAMK/File-ShareDir-1.03.tar.gz
+    provides:
+      File::ShareDir 1.03
+    requirements:
+      Carp 0
+      Class::Inspector 1.12
+      ExtUtils::MakeMaker 6.42
+      File::Spec 0.80
+      Test::More 0.47
+      perl 5.005
+  File-ShareDir-Install-0.08
+    pathname: G/GW/GWYN/File-ShareDir-Install-0.08.tar.gz
+    provides:
+      File::ShareDir::Install 0.08
+    requirements:
+      ExtUtils::MakeMaker 6.11
+      File::Spec 0
+      IO::Dir 0
+  Filesys-Notify-Simple-0.12
+    pathname: M/MI/MIYAGAWA/Filesys-Notify-Simple-0.12.tar.gz
+    provides:
+      Filesys::Notify::Simple 0.12
+    requirements:
+      ExtUtils::MakeMaker 6.30
+  HTTP-Body-1.19
+    pathname: G/GE/GETTY/HTTP-Body-1.19.tar.gz
+    provides:
+      HTTP::Body 1.19
+      HTTP::Body::MultiPart 1.19
+      HTTP::Body::OctetStream 1.19
+      HTTP::Body::UrlEncoded 1.19
+      HTTP::Body::XForms 1.19
+      HTTP::Body::XFormsMultipart 1.19
+      PAML undef
+    requirements:
+      Carp 0
+      Digest::MD5 0
+      ExtUtils::MakeMaker 6.30
+      File::Temp 0.14
+      HTTP::Headers 0
+      IO::File 1.14
+  HTTP-Date-6.02
+    pathname: G/GA/GAAS/HTTP-Date-6.02.tar.gz
+    provides:
+      HTTP::Date 6.02
+    requirements:
+      ExtUtils::MakeMaker 0
+      Time::Local 0
+      perl 5.006002
+  HTTP-Message-6.06
+    pathname: G/GA/GAAS/HTTP-Message-6.06.tar.gz
+    provides:
+      HTTP::Config 6.00
+      HTTP::Headers 6.05
+      HTTP::Headers::Auth 6.00
+      HTTP::Headers::ETag 6.00
+      HTTP::Headers::Util 6.03
+      HTTP::Message 6.06
+      HTTP::Request 6.00
+      HTTP::Request::Common 6.04
+      HTTP::Response 6.04
+      HTTP::Status 6.03
+    requirements:
+      Compress::Raw::Zlib 0
+      Encode 2.21
+      Encode::Locale 1
+      ExtUtils::MakeMaker 0
+      HTTP::Date 6
+      IO::Compress::Bzip2 2.021
+      IO::Compress::Deflate 0
+      IO::Compress::Gzip 0
+      IO::HTML 0
+      IO::Uncompress::Bunzip2 2.021
+      IO::Uncompress::Gunzip 0
+      IO::Uncompress::Inflate 0
+      IO::Uncompress::RawInflate 0
+      LWP::MediaTypes 6
+      MIME::Base64 2.1
+      MIME::QuotedPrint 0
+      URI 1.10
+      perl 5.008001
+  HTTP-Tiny-0.043
+    pathname: D/DA/DAGOLDEN/HTTP-Tiny-0.043.tar.gz
+    provides:
+      HTTP::Tiny 0.043
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 6.17
+      Fcntl 0
+      IO::Socket 0
+      MIME::Base64 0
+      Time::Local 0
+      bytes 0
+      strict 0
+      warnings 0
+  Hash-MultiValue-0.15
+    pathname: M/MI/MIYAGAWA/Hash-MultiValue-0.15.tar.gz
+    provides:
+      Hash::MultiValue 0.15
+    requirements:
+      ExtUtils::MakeMaker 6.30
+  IO-HTML-1.00
+    pathname: C/CJ/CJM/IO-HTML-1.00.tar.gz
+    provides:
+      IO::HTML 1.00
+    requirements:
+      Carp 0
+      Encode 2.10
+      Exporter 5.57
+      ExtUtils::MakeMaker 6.30
+      File::Temp 0
+      Scalar::Util 0
+      Test::More 0.88
+  LWP-MediaTypes-6.02
+    pathname: G/GA/GAAS/LWP-MediaTypes-6.02.tar.gz
+    provides:
+      LWP::MediaTypes 6.02
+    requirements:
+      ExtUtils::MakeMaker 0
+      perl 5.006002
+  POSIX-strftime-Compiler-0.31
+    pathname: K/KA/KAZEBURO/POSIX-strftime-Compiler-0.31.tar.gz
+    provides:
+      POSIX::strftime::Compiler 0.31
+    requirements:
+      CPAN::Meta 0
+      CPAN::Meta::Prereqs 0
+      Carp 0
+      Exporter 0
+      ExtUtils::CBuilder 0
+      Module::Build 0.38
+      POSIX 0
+      Time::Local 0
+      perl 5.008004
+  Plack-1.0030
+    pathname: M/MI/MIYAGAWA/Plack-1.0030.tar.gz
+    provides:
+      HTTP::Message::PSGI undef
+      HTTP::Server::PSGI undef
+      Plack 1.0030
+      Plack::App::CGIBin undef
+      Plack::App::Cascade undef
+      Plack::App::Directory undef
+      Plack::App::File undef
+      Plack::App::PSGIBin undef
+      Plack::App::URLMap undef
+      Plack::App::WrapCGI undef
+      Plack::Builder undef
+      Plack::Component undef
+      Plack::HTTPParser undef
+      Plack::HTTPParser::PP undef
+      Plack::Handler undef
+      Plack::Handler::Apache1 undef
+      Plack::Handler::Apache2 undef
+      Plack::Handler::Apache2::Registry undef
+      Plack::Handler::CGI undef
+      Plack::Handler::CGI::Writer undef
+      Plack::Handler::FCGI undef
+      Plack::Handler::HTTP::Server::PSGI undef
+      Plack::Handler::Standalone undef
+      Plack::LWPish undef
+      Plack::Loader undef
+      Plack::Loader::Delayed undef
+      Plack::Loader::Restarter undef
+      Plack::Loader::Shotgun undef
+      Plack::MIME undef
+      Plack::Middleware undef
+      Plack::Middleware::AccessLog undef
+      Plack::Middleware::AccessLog::Timed undef
+      Plack::Middleware::Auth::Basic undef
+      Plack::Middleware::BufferedStreaming undef
+      Plack::Middleware::Chunked undef
+      Plack::Middleware::Conditional undef
+      Plack::Middleware::ConditionalGET undef
+      Plack::Middleware::ContentLength undef
+      Plack::Middleware::ContentMD5 undef
+      Plack::Middleware::ErrorDocument undef
+      Plack::Middleware::HTTPExceptions undef
+      Plack::Middleware::Head undef
+      Plack::Middleware::IIS6ScriptNameFix undef
+      Plack::Middleware::IIS7KeepAliveFix undef
+      Plack::Middleware::JSONP undef
+      Plack::Middleware::LighttpdScriptNameFix undef
+      Plack::Middleware::Lint undef
+      Plack::Middleware::Log4perl undef
+      Plack::Middleware::LogDispatch undef
+      Plack::Middleware::NullLogger undef
+      Plack::Middleware::RearrangeHeaders undef
+      Plack::Middleware::Recursive undef
+      Plack::Middleware::Refresh undef
+      Plack::Middleware::Runtime undef
+      Plack::Middleware::SimpleContentFilter undef
+      Plack::Middleware::SimpleLogger undef
+      Plack::Middleware::StackTrace undef
+      Plack::Middleware::Static undef
+      Plack::Middleware::XFramework undef
+      Plack::Middleware::XSendfile undef
+      Plack::Recursive::ForwardRequest undef
+      Plack::Request 1.0030
+      Plack::Request::Upload undef
+      Plack::Response 1.0030
+      Plack::Runner undef
+      Plack::TempBuffer undef
+      Plack::Test undef
+      Plack::Test::MockHTTP undef
+      Plack::Test::Server undef
+      Plack::Test::Suite undef
+      Plack::Util undef
+      Plack::Util::Accessor undef
+      Plack::Util::IOWithPath undef
+      Plack::Util::Prototype undef
+    requirements:
+      Apache::LogFormat::Compiler 0.12
+      Devel::StackTrace 1.23
+      Devel::StackTrace::AsHTML 0.11
+      ExtUtils::MakeMaker 6.30
+      File::ShareDir 1.00
+      File::ShareDir::Install 0.03
+      Filesys::Notify::Simple 0
+      HTTP::Body 1.06
+      HTTP::Message 5.814
+      HTTP::Tiny 0.034
+      Hash::MultiValue 0.05
+      Pod::Usage 1.36
+      Stream::Buffered 0.02
+      Test::TCP 2.00
+      Try::Tiny 0
+      URI 1.59
+      parent 0
+  Plack-Middleware-ReverseProxy-0.15
+    pathname: M/MI/MIYAGAWA/Plack-Middleware-ReverseProxy-0.15.tar.gz
+    provides:
+      Plack::Middleware::ReverseProxy 0.15
+    requirements:
+      ExtUtils::MakeMaker 6.59
+      Plack 0.9988
+      Plack::Middleware 0
+      Plack::Request 0
+      Test::More 0
+      parent 0
+      perl 5.008001
+  Stream-Buffered-0.02
+    pathname: D/DO/DOY/Stream-Buffered-0.02.tar.gz
+    provides:
+      Stream::Buffered 0.02
+      Stream::Buffered::Auto undef
+      Stream::Buffered::File undef
+      Stream::Buffered::PerlIO undef
+    requirements:
+      ExtUtils::MakeMaker 6.36
+  Test-SharedFork-0.24
+    pathname: T/TO/TOKUHIROM/Test-SharedFork-0.24.tar.gz
+    provides:
+      Test::SharedFork 0.24
+      Test::SharedFork::Array undef
+      Test::SharedFork::Scalar undef
+      Test::SharedFork::Store undef
+    requirements:
+      CPAN::Meta 0
+      CPAN::Meta::Prereqs 0
+      ExtUtils::CBuilder 0
+      File::Temp 0
+      Module::Build 0.38
+      Test::Builder 0.32
+      Test::Builder::Module 0
+      Test::More 0.88
+      perl 5.008_001
+  Test-TCP-2.02
+    pathname: T/TO/TOKUHIROM/Test-TCP-2.02.tar.gz
+    provides:
+      Net::EmptyPort undef
+      Test::TCP 2.02
+      Test::TCP::CheckPort undef
+    requirements:
+      CPAN::Meta 0
+      CPAN::Meta::Prereqs 0
+      ExtUtils::CBuilder 0
+      IO::Socket::INET 0
+      Module::Build 0.38
+      Test::More 0
+      Test::SharedFork 0.19
+      Time::HiRes 0
+      perl 5.008001
+  Text-MicroTemplate-0.20
+    pathname: K/KA/KAZUHO/Text-MicroTemplate-0.20.tar.gz
+    provides:
+      Text::MicroTemplate 0.20
+      Text::MicroTemplate::EncodedString 0.20
+      Text::MicroTemplate::File undef
+    requirements:
+      ExtUtils::MakeMaker 6.42
+      File::Temp 0
+      Test::More 0
+      perl 5.00800
+  Try-Tiny-0.21
+    pathname: D/DO/DOY/Try-Tiny-0.21.tar.gz
+    provides:
+      Try::Tiny 0.21
+    requirements:
+      Carp 0
+      Exporter 5.57
+      ExtUtils::MakeMaker 6.30
+      constant 0
+      strict 0
+      warnings 0
+  URI-1.60
+    pathname: G/GA/GAAS/URI-1.60.tar.gz
+    provides:
+      URI 1.60
+      URI::Escape 3.31
+      URI::Heuristic 4.20
+      URI::IRI undef
+      URI::QueryParam undef
+      URI::Split undef
+      URI::URL 5.04
+      URI::WithBase 2.20
+      URI::_foreign undef
+      URI::_generic undef
+      URI::_idna undef
+      URI::_ldap 1.12
+      URI::_login undef
+      URI::_punycode 0.04
+      URI::_query undef
+      URI::_segment undef
+      URI::_server undef
+      URI::_userpass undef
+      URI::data undef
+      URI::file 4.21
+      URI::file::Base undef
+      URI::file::FAT undef
+      URI::file::Mac undef
+      URI::file::OS2 undef
+      URI::file::QNX undef
+      URI::file::Unix undef
+      URI::file::Win32 undef
+      URI::ftp undef
+      URI::gopher undef
+      URI::http undef
+      URI::https undef
+      URI::ldap 1.12
+      URI::ldapi undef
+      URI::ldaps undef
+      URI::mailto undef
+      URI::mms undef
+      URI::news undef
+      URI::nntp undef
+      URI::pop undef
+      URI::rlogin undef
+      URI::rsync undef
+      URI::rtsp undef
+      URI::rtspu undef
+      URI::sip 0.11
+      URI::sips undef
+      URI::snews undef
+      URI::ssh undef
+      URI::telnet undef
+      URI::tn3270 undef
+      URI::urn undef
+      URI::urn::isbn undef
+      URI::urn::oid undef
+    requirements:
+      ExtUtils::MakeMaker 0
+      MIME::Base64 2
+      Test 0
+      Test::More 0
+      perl 5.008001

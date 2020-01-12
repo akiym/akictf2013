@@ -1,0 +1,8 @@
+requires 'DBI';
+requires 'DBD::SQLite';
+requires 'Data::Section::Simple';
+requires 'Digest::MD5';
+requires 'Encode';
+requires 'Plack';
+requires 'Plack::Middleware::ReverseProxy';
+requires 'Text::MicroTemplate';

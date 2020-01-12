@@ -1,0 +1,5 @@
+[% WRAPPER 'include/layout.tt' %]
+
+<p>[% message %]</p>
+
+[% END %]

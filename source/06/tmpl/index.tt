@@ -1,0 +1,38 @@
+[% WRAPPER 'include/layout.tt' %]
+
+<h1>Janken</h1>
+<p>money: $<span id="money">10</span></p>
+<p id="message">Rock, Paper, Scissors. 1 2 3!</p>
+<form id="jankenForm">
+    <input type="hidden" id="h" value="d3d9446802a44259755d38e6d163e820" />
+    <input type="submit" value="Rock" />
+    <input type="submit" value="Paper" />
+    <input type="submit" value="Scissors" />
+</form>
+<hr />
+<h2>Ranking</h2>
+<form id="registerForm">
+    <p>Can you rank in?</p>
+    <p>challenge: <input type="submit" value="Register" /></p>
+</form>
+<table border="1">
+    <tr>
+        <th>#</th>
+        <th>Money</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>$10,000,000</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>$5,000,000</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>$1,000,000</td>
+    </tr>
+</table>
+<script>$(function(){var d=$("#h"),c=$("#money"),b=$("#message");$("#jankenForm").submit(function(){0<c.text()&&$.post("[% uri_for('/janken') %]",{h:d.val(),money:c.text()}).done(function(a){a.error?b.text("error"):(d.val(a.h),c.text(a.money),b.text(a.message))}).fail(function(){b.text("Oops... Try again later.")});return!1});$("#registerForm").submit(function(){$.post("[% uri_for('/register') %]",{h:d.val(),money:c.text()}).done(function(a){a.error?b.text("error"):b.text(a.message)}).fail(function(){b.text("Oops... Try again later.")});return!1})});</script>
+
+[% END %]

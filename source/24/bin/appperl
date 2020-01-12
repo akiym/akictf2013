@@ -1,0 +1,20 @@
+#!/bin/bash
+
+export HOME=/home/ctfq/ctfq24
+export PLACK_ENV=production
+
+export PERLBREW_ROOT=/opt/perl5
+export PERLBREW_HOME=/opt/perl5
+
+. $PERLBREW_ROOT/etc/bashrc
+
+if [ -z "$PERLBREW_PERL" ]; then
+  perl_version=perl-5.16
+else
+  perl_version=$PERLBREW_PERL
+fi
+
+perlbrew use $perl_version
+exec perl "$@"
+
+echo "failed to exec: $@" 1>&2

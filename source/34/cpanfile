@@ -1,0 +1,19 @@
+requires 'Amon2', '6.00';
+requires 'Cache::Memcached::Fast';
+requires 'Imager';
+requires 'JSON', '2.50';
+requires 'Log::Minimal';
+requires 'Module::Functions', '2';
+requires 'Plack::Middleware::ReverseProxy', '0.09';
+requires 'Text::Xslate', '2.0009';
+requires 'perl', '5.010_001';
+
+on configure => sub {
+    requires 'Module::Build', '0.38';
+    requires 'Module::CPANfile', '0.9010';
+};
+
+on test => sub {
+    requires 'Test::More', '0.98';
+    requires 'Test::WWW::Mechanize::PSGI';
+};

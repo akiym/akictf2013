@@ -1,0 +1,14 @@
+requires 'Mojolicious', '4.23';
+requires 'FormValidator::Lite';
+requires 'HTML::FillInForm::Lite';
+requires 'JSON', '2';
+requires 'Teng', '0.19';
+requires 'DBD::SQLite';
+requires 'Plack::Middleware::ReverseProxy';
+
+on test => sub {
+    requires 'Test::More', '0.98';
+    requires 'HTTP::Request::Common';
+    requires 'Plack::Test';
+    requires 'Test::WWW::Mechanize::PSGI';
+};

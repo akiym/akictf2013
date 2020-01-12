@@ -1,0 +1,36 @@
+% layout 'default';
+% title 'e-bank';
+<form action="<%= url_for '/signup' %>" method="post" class="form-horizontal">
+  <fieldset>
+    <legend>Create an account</legend>
+    <div class="control-group">
+      <label class="control-label">username</label>
+      <div class="controls">
+        <input type="text" name="username" maxlength="14" />
+        <span class="help-inline">username must be at most 14 characters, alphanumerics only.</span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">full name</label>
+      <div class="controls">
+        <input type="text" class="input-xxlarge" name="screen_name" maxlength="25" />
+        <span class="help-inline">username must be at most 25 characters</span>
+        <span class="help-block">full name will not be published.</span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">password</label>
+      <div class="controls">
+        <input type="password" name="password" maxlength="32" />
+      </div>
+    </div>
+  </fieldset>
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">create</button>
+  </div>
+</form>
+% if (my $error = stash 'error') {
+<div class="alert alert-error">
+  <%= $error %>
+</div>
+% }

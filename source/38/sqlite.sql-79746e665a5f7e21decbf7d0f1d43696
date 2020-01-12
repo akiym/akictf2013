@@ -1,0 +1,8 @@
+CREATE TABLE note (
+    title      VARCHAR(32) NOT NULL,
+    path       VARCHAR(255) NOT NULL,
+    address    VARCHAR(15) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    super_secret_FLAG VARCHAR(255)
+);
+INSERT INTO note (title, path, address, super_secret_FLAG) VALUES ('', '', '127.0.0.1', '_8yPA55_f0R_1nJ3c710n');

@@ -1,0 +1,21 @@
+body {
+}
+
+.bs-callout {
+    margin: 20px 0;
+    padding: 20px;
+    border-left: 3px solid #eee;
+}
+
+.bs-callout-danger {
+    background-color: #fdf7f7;
+    border-color: #eed3d7;
+}
+
+.bs-callout-danger h4 {
+    color: #b94a48;
+}
+
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}

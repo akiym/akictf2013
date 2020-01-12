@@ -1,0 +1,29 @@
+: cascade "include/layout.tx"
+
+: override content -> {
+
+<h1>CAPTCHA the Flag</h1>
+
+<p>
+    Try a lot!
+: if $count == 10 {
+    The flag is:
+: } elsif $count > 0 {
+    <: $count :>/10
+: }
+</p>
+
+<img src="<: uri_for('/challenge/' ~ $captcha_id ~ '.png') :>" width="320" height="50" />
+
+: if $count < 10 {
+<p>remaing time: <span id="timeout"><: $timeout :></span> sec</p>
+<form id="chall" method="post" action="<: uri_for('/challenge') :>">
+    <input type="hidden" name="id" value="<: $captcha_id :>" />
+    <input type="text" name="key" />
+    <input type="submit" value="submit" />
+</form>
+
+<script>(function(){var e=document.getElementById("timeout");var t=setInterval(function(){if(--e.innerText==0){clearInterval(t);var s=document.body.style;s.backgroundColor='#944';s.color="#fff"}},1e3)})()</script>
+: }
+
+: }

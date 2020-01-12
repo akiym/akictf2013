@@ -1,0 +1,21 @@
+requires 'perl', '5.008001';
+requires 'Amon2', '== 3.85';
+requires 'Text::Xslate', '1.6001';
+requires 'Amon2::DBI', '0.30';
+requires 'DBD::SQLite', '1.33';
+requires 'Module::Functions';
+requires 'Plack::Middleware::ReverseProxy', '0.09';
+requires 'Plack::Middleware::Session';
+requires 'Plack::Session', '0.14';
+requires 'Log::Minimal';
+requires 'Plack::Middleware::Log::Minimal';
+
+on 'configure' => sub {
+   requires 'Module::Build', '0.38';
+   requires 'Module::CPANfile', '0.9010';
+};
+
+on 'test' => sub {
+   requires 'Test::More', '0.98';
+   requires 'Test::WWW::Mechanize::PSGI';
+};

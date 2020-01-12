@@ -1,0 +1,5 @@
+requires 'DBI';
+requires 'DBD::SQLite';
+requires 'AnySan';
+
+requires 'Server::Starter';

@@ -1,0 +1,41 @@
+% layout 'default';
+% title 'e-bank';
+<form id="search" class="form-search">
+<div class="input-append">
+    <input type="text" class="span2 search-query" name="username" placeholder="username" maxlength="14" />
+    <button type="submit" class="btn btn-primary">search</button>
+</div>
+</form>
+<table id="result" class="table table-striped">
+  <thead>
+    <tr>
+      <th>username</th>
+      <th>last login</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<script>
+$(function () {
+  $("#search").submit(function() {
+    $("#result .user").remove();
+    $.ajax("/user/search", {
+      type: "POST",
+      dataType: "json",
+      data: {
+        username: $("#search input[name='username']").val()
+      },
+      success: function(data, textStatus, jqXHR) {
+        for (var i = 0; i < data.length; i++) {
+          var tr = $("<tr />").addClass("user");
+          tr.append($("<td />").text(data[i].username));
+          tr.append($("<td />").text(data[i].last_login));
+          $("#result tbody").append(tr);
+        }
+      }
+    });
+    return false;
+  });
+});
+</script>
